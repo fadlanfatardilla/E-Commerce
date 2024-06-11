@@ -35,3 +35,41 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+@import "./theme/fonts.scss";
+
+* {
+  font-family: Gilroy;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+ion-app,
+ion-router-outlet {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+ion-content {
+  flex: 1;
+}
+
+ion-searchbar {
+  .searchbar-input-container {
+    input {
+      padding-top: 14px !important;
+      padding-bottom: 12px !important;
+      font-size: 18px !important;
+    }
+
+    .searchbar-search-icon {
+      top: 15px !important;
+      width: 25px;
+      height: 25px;
+    }
+  }
+}

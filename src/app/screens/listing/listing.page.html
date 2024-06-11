@@ -1,0 +1,45 @@
+<ion-content>
+  <!-- Header -->
+  <div class="header">
+    <h2>What's Up?</h2>
+    <div class="avatar">
+      <ion-img src="assets/images/avatar.jpg"></ion-img>
+    </div>
+  </div>
+
+  <!-- SearchBar -->
+  <app-searchbar></app-searchbar>
+
+  <!-- Category -->
+  <div class="categories">
+    <app-category-item
+      *ngFor="let item of categories"
+      [item]="item"
+    ></app-category-item>
+  </div>
+
+  <!-- Products -->
+  <h1 class="list-header">Popular</h1>
+  <div class="shoe-list">
+    <ng-container *ngFor="let shoe of shoes">
+      <app-shoes-card [item]="shoe"></app-shoes-card>
+    </ng-container>
+  </div>
+</ion-content>
+
+<ion-tabs class="nav-bottom">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="listing">
+      <ion-icon name="apps"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="location">
+      <ion-icon name="location-sharp"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="wishlist">
+      <ion-icon name="heart-outline"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="cart">
+      <ion-icon name="cart-outline"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
