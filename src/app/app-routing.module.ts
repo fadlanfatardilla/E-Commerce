@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'mainscreen',
     pathMatch: 'full',
   },
   {
@@ -19,15 +19,60 @@ const routes: Routes = [
   },
   {
     path: 'listing',
-    loadChildren: () => import('./screens/listing/listing.module').then( m => m.ListingPageModule)
+    loadChildren: () =>
+      import('./screens/listing/listing.module').then(
+        (m) => m.ListingPageModule
+      ),
   },
   {
-    path: 'detail',
-    loadChildren: () => import('./screens/detail/detail.module').then( m => m.DetailPageModule)
+    path: 'detail/:id',
+    loadChildren: () =>
+      import('./screens/detail/detail.module').then((m) => m.DetailPageModule),
   },
   {
     path: 'cart',
-    loadChildren: () => import('./screens/cart/cart.module').then( m => m.CartPageModule)
+    loadChildren: () =>
+      import('./screens/cart/cart.module').then((m) => m.CartPageModule),
+  },
+  {
+    path: 'mainscreen',
+    loadChildren: () =>
+      import('./mainscreen/mainscreen.module').then(
+        (m) => m.MainscreenPageModule
+      ),
+  },
+  {
+    path: 'wishlist',
+    loadChildren: () =>
+      import('./screens/wishlist/wishlist.module').then(
+        (m) => m.WishlistPageModule
+      ),
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminPageModule),
+  },
+  {
+    path: 'category/:brand',
+    loadChildren: () =>
+      import('./screens/brand/brand.module').then((m) => m.BrandPageModule),
+  },
+  {
+    path: 'user-profile',
+    loadChildren: () => import('./screens/user-profile/user-profile.module').then( m => m.UserProfilePageModule)
+  },
+  {
+    path: 'checkout',
+    loadChildren: () => import('./screens/checkout/checkout.module').then( m => m.CheckoutPageModule)
+  },
+  {
+    path: 'address',
+    loadChildren: () => import('./screens/address/address.module').then( m => m.AddressPageModule)
+  },
+  {
+    path: 'add-address',
+    loadChildren: () => import('./screens/add-address/add-address.module').then( m => m.AddAddressPageModule)
   },
 ];
 

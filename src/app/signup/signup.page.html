@@ -15,13 +15,14 @@
   <div class="middle">
     <h1 class="center-text">Create your Account</h1>
     <div class="box">
-      <form #loginForm="ngForm">
+      <form (ngSubmit)="onSignup()">
         <ion-item>
           <ion-label position="floating">Full Name</ion-label>
           <ion-input
             type="text"
             aria-placeholder="Full Name"
-            name="nama"
+            [(ngModel)]="name"
+            name="name"
           ></ion-input>
           <ion-icon
             class="ion-align-self-center"
@@ -34,6 +35,7 @@
           <ion-input
             type="email"
             aria-placeholder="Email Address"
+            [(ngModel)]="email"
             name="email"
           ></ion-input>
           <ion-icon
@@ -47,6 +49,7 @@
           <ion-input
             type="{{ hidePassword ? 'password' : 'text' }}"
             aria-placeholder="Password"
+            [(ngModel)]="password"
             name="password"
           ></ion-input>
           <ion-icon
@@ -61,6 +64,7 @@
           <ion-input
             type="number"
             aria-placeholder="Phone Number"
+            [(ngModel)]="phone"
             name="phone"
           ></ion-input>
           <ion-icon
@@ -71,7 +75,7 @@
         </ion-item>
 
         <div class="upperBox">
-          <ion-radio-group>
+          <ion-radio-group [(ngModel)]="gender" name="gender">
             <ion-row>
               <ion-col aria-setsize="6">
                 <ion-item>
@@ -94,7 +98,7 @@
         </p>
 
         <div class="btn">
-          <ion-button>Sign Up</ion-button>
+          <ion-button expand="block" type="submit">Signup</ion-button>
         </div>
       </form>
     </div>

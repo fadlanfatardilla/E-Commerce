@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Menyusun item secara horizontal dan memberi jarak antara item */
+
+  ion-buttons {
+    margin-right: 10px;
+  }
+
+  ion-icon {
+    color: #2596be;
+    font-size: 24px; /* Ukuran font sesuaikan dengan yang diinginkan */
+  }
+
+  .title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #c7c7c7;
+    margin: 0;
+    padding: 0;
+    margin-left: 15px;
+  }
+
+  .icon-add {
+    --background: #2596be; /* Mengatur background tombol menjadi #2596be */
+    --background-activated: #207ba7; /* Warna tombol saat diaktifkan */
+    --background-focused: #207ba7; /* Warna tombol saat difokuskan */
+    --background-hover: #207ba7; /* Warna tombol saat dihover */
+    padding: 8px 16px;
+    color: white; /* Warna teks tombol */
+    border-radius: 4px;
+  }
+}

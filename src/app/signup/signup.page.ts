@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { AuthService } from '../services/api.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-signup',
@@ -7,16 +9,54 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage {
-  hidePassword: boolean = true; // Variabel untuk mengontrol apakah password harus disembunyikan atau ditampilkan
+  name: string = '';
+  email: string = '';
+  password: string = '';
+  phone: string = '';
+  gender: string = ''; // Pastikan properti ini ada
+  hidePassword: boolean = true;
 
-  constructor(private navCtrl: NavController) {}
+  constructor(
+    private navCtrl: NavController,
+    private authService: AuthService,
+    private toastController: ToastController
+  ) {}
 
-  // Fungsi untuk mengubah status hidePassword
   togglePassword() {
-    this.hidePassword = !this.hidePassword; // Mengubah nilai boolean untuk menampilkan atau menyembunyikan password
+    this.hidePassword = !this.hidePassword;
   }
 
   goToLogin() {
     this.navCtrl.navigateForward('/login');
+  }
+
+  async onSignup() {
+    const signupData = {
+      name: this.name,
+      email: this.email,
+      password: this.password,
+      phone: this.phone,
+      gender: this.gender,
+    };
+
+    this.authService.signup(signupData).subscribe(
+      async (response: any) => {
+        const toast = await this.toastController.create({
+          message: 'Signup successful!',
+          duration: 2000,
+          color: 'success',
+        });
+        await toast.present();
+        this.navCtrl.navigateForward('/login');
+      },
+      async (error: any) => {
+        const toast = await this.toastController.create({
+          message: 'Signup failed. Please try again.',
+          duration: 2000,
+          color: 'danger',
+        });
+        await toast.present();
+      }
+    );
   }
 }

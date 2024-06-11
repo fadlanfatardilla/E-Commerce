@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="header">
+      <ion-buttons slot="start">
+        <ion-button routerLink="/checkout">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <h2 class="title">My Address</h2>
+      <ion-buttons slot="end">
+        <ion-button expand="block" class="icon-add" (click)="goToAddAdress()"
+          >Add</ion-button
+        >
+      </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-header>

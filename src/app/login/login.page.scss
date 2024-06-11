@@ -1,5 +1,5 @@
 * {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Gilroy;
 }
 
 ion-header,
@@ -81,41 +81,18 @@ ion-content {
     .btn {
       display: flex;
       justify-content: center;
+      width: 100%;
 
       ion-button {
         --background: #2596be;
+        width: 100%;
       }
     }
-
-    /* CSS */
-    #media {
-      text-align: center;
-      margin-top: 20px; /* Atur jarak di atas kotak tulisan */
-      margin-bottom: 10px; /* Atur jarak di bawah kotak tulisan */
-      color: black;
-    }
-
-    .socialMedia {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .socialMedia ion-button {
-      margin-bottom: 10px; /* Atur jarak antara tombol */
-      width: 80%; /* Lebar tombol */
-      max-width: 300px; /* Lebar maksimum tombol */
-      text-align: center;
-      text-transform: none;
-    }
-
-    .socialMedia ion-button ion-icon[name="logo-google"] {
-      margin-right: 10px;
-      margin-left: 10px;
-    }
-    .socialMedia ion-button ion-icon[name="logo-facebook"] {
-      margin-right: 10px;
-      margin-left: 10px;
-    }
   }
+}
+
+.alert-icon {
+  font-size: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
 }

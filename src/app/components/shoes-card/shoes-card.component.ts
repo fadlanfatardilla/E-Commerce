@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Shoes } from 'src/app/models/shoe.model';
 
 @Component({
@@ -8,4 +8,6 @@ import { Shoes } from 'src/app/models/shoe.model';
 })
 export class ShoesCardComponent {
   @Input() item!: Shoes;
+
+  @Output() clicked = new EventEmitter();
 }

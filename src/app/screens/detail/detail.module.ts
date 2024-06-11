@@ -7,14 +7,20 @@ import { IonicModule } from '@ionic/angular';
 import { DetailPageRoutingModule } from './detail-routing.module';
 
 import { DetailPage } from './detail.page';
+import { BadgeComponent } from 'src/app/components/badge/badge.component';
+import { BadgeModule } from 'src/app/components/badge/badge.module';
+import { ButtonModule } from 'src/app/components/button/button.module';
+import { ActionSheetController } from '@ionic/angular';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailPageRoutingModule
+    DetailPageRoutingModule,
+    BadgeModule,
+    ButtonModule,
   ],
-  declarations: [DetailPage]
+  declarations: [DetailPage],
 })
 export class DetailPageModule {}

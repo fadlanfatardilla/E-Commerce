@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Category } from 'src/app/models/category.model';
 import { Shoes } from 'src/app/models/shoe.model';
 import { ShoeService } from 'src/app/services/shoe.service';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-listing',
@@ -11,12 +14,14 @@ import { ShoeService } from 'src/app/services/shoe.service';
 export class ListingPage implements OnInit {
   categories: Category[] = [];
   shoes: Shoes[] = [];
+  filteredShoes$: Observable<Shoes[]> = of([]);
 
-  constructor(private shoeService: ShoeService) {}
+  constructor(private shoeService: ShoeService, private router: Router) {}
 
   ngOnInit() {
     this.getCategories();
     this.shoes = this.shoeService.getShoesList();
+    this.filteredShoes$ = of(this.shoeService.getPopularShoes());
   }
 
   getCategories() {
@@ -46,5 +51,29 @@ export class ListingPage implements OnInit {
         active: false,
       },
     ];
+  }
+
+  onSearchChange(searchTerm: string) {
+    this.filteredShoes$ = of(this.shoeService.searchShoes(searchTerm));
+  }
+
+  goToDetailPage(id: number) {
+    this.router.navigate(['detail', id]);
+  }
+
+  goToCart() {
+    this.router.navigate(['/cart']);
+  }
+
+  goToWishlist() {
+    this.router.navigate(['/wishlist']);
+  }
+  goToProfile() {
+    this.router.navigate(['/user-profile']);
+  }
+
+  goToCategoryPage(item: Category) {
+    const categoryLabel = item.label.toLowerCase();
+    this.router.navigate([`/category/${categoryLabel}`]);
   }
 }

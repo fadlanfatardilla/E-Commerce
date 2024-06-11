@@ -1,1 +1,5 @@
-<ion-searchbar search-icon="search-outline"></ion-searchbar>
+<ion-searchbar
+  [(ngModel)]="searchTerm"
+  (ionInput)="onSearchChange($event)"
+  search-icon="search-outline"
+></ion-searchbar>

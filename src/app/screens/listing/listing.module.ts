@@ -6,9 +6,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { ListingPageRoutingModule } from './listing-routing.module';
 
-import { ListingPage } from './listing.page';
-import { SearchbarComponent } from 'src/app/components/searchbar/searchbar.component';
 import { SearchbarModule } from 'src/app/components/searchbar/searchbar.module';
+import { ListingPage } from './listing.page';
 import { CategoryItemModule } from 'src/app/components/category-item/category-item.module';
 import { ShoesCardModule } from 'src/app/components/shoes-card/shoes-card.module';
 

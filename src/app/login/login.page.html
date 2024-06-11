@@ -27,6 +27,8 @@
             type="email"
             aria-placeholder="Email Address"
             name="email"
+            [(ngModel)]="email"
+            required
           ></ion-input>
           <ion-icon
             class="ion-align-self-center"
@@ -40,11 +42,13 @@
             type="{{ hidePassword ? 'password' : 'text' }}"
             aria-placeholder="Password"
             name="password"
+            [(ngModel)]="password"
+            required
           ></ion-input>
           <ion-icon
             class="ion-align-self-center"
             slot="end"
-            name="{{ hidePassword ? 'eye-outline' : 'eye-off-outline' }}"
+            [name]="hidePassword ? 'eye-outline' : 'eye-off-outline'"
             (click)="togglePassword()"
           ></ion-icon>
         </ion-item>
@@ -54,22 +58,9 @@
         </p>
 
         <div class="btn">
-          <ion-button>Login</ion-button>
+          <ion-button (click)="login()">Login</ion-button>
         </div>
       </form>
-
-      <p id="media">Or Login using Social Media</p>
-
-      <div class="socialMedia">
-        <ion-button expand="block" color="danger">
-          <ion-icon name="logo-google"></ion-icon>
-          <span class="button-text">Continue with Google</span>
-        </ion-button>
-        <ion-button expand="block" color="primary">
-          <ion-icon name="logo-facebook"></ion-icon>
-          <span class="button-text">Continue with Facebook</span>
-        </ion-button>
-      </div>
     </div>
   </div>
 </ion-content>

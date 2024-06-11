@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Category } from 'src/app/models/category.model';
 
 @Component({
@@ -8,4 +8,9 @@ import { Category } from 'src/app/models/category.model';
 })
 export class CategoryItemComponent {
   @Input() item!: Category;
+  @Output() clicked = new EventEmitter<void>();
+
+  handleClick() {
+    this.clicked.emit();
+  }
 }

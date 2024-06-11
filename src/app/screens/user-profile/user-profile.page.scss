@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  align-items: center;
+
+  ion-buttons {
+    margin-right: 10px;
+  }
+
+  ion-icon {
+    color: #2596be;
+  }
+
+  .title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #c7c7c7;
+    margin: 0;
+    padding: 0;
+    margin-left: 15px;
+  }
+}

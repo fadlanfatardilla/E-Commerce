@@ -1,5 +1,5 @@
 * {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Gilroy;
 }
 
 ion-header,
@@ -81,9 +81,11 @@ ion-content {
     .btn {
       display: flex;
       justify-content: center;
+      width: 100%;
 
       ion-button {
         --background: #2596be;
+        width: 100%;
       }
     }
   }
