@@ -15,67 +15,60 @@
   <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
     <ion-item>
       <ion-label position="stacked">Address Name</ion-label>
-      <ion-input
-        type="text"
-        formControlName="addressName"
-        placeholder="My Home"
-      ></ion-input>
+      <ion-input type="text" formControlName="addressName"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Receiver Name</ion-label>
-      <ion-input
-        type="text"
-        formControlName="receiverName"
-        placeholder="John Doe"
-      ></ion-input>
+      <ion-input type="text" formControlName="receiverName"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Phone Number</ion-label>
-      <ion-input
-        type="text"
-        formControlName="phoneNumber"
-        placeholder="+62 812 345 6789"
-      ></ion-input>
+      <ion-input type="number" formControlName="phoneNumber"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Province</ion-label>
-      <ion-select formControlName="province">
-        <ion-select-option value="">Select Province</ion-select-option>
-        <ion-select-option value="Aceh">Aceh</ion-select-option>
-        <ion-select-option value="Bali">Bali</ion-select-option>
-        <ion-select-option value="Banten">Banten</ion-select-option>
-      </ion-select>
+      <ion-input
+        formControlName="province"
+        readonly
+        placeholder="Select Province"
+      >
+        <ion-icon
+          name="chevron-down-outline"
+          slot="end"
+          (click)="openProvinceActionSheet()"
+        ></ion-icon>
+      </ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">City</ion-label>
-      <ion-select formControlName="city">
-        <ion-select-option value="">Select City</ion-select-option>
-      </ion-select>
+      <ion-input formControlName="city" readonly placeholder="Select City">
+        <ion-icon
+          name="chevron-down-outline"
+          slot="end"
+          (click)="openCityActionSheet()"
+        ></ion-icon>
+      </ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label position="stacked">Districts</ion-label>
-      <ion-select formControlName="districts">
-        <ion-select-option value="">Select Districts</ion-select-option>
-      </ion-select>
+      <ion-label position="stacked">District</ion-label>
+      <ion-input type="text" formControlName="districts"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Village</ion-label>
-      <ion-select formControlName="village">
-        <ion-select-option value="">Select Village</ion-select-option>
-      </ion-select>
+      <ion-input type="text" formControlName="village"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="stacked">Address</ion-label>
       <ion-textarea
         formControlName="address"
-        placeholder="Jl. Raya Suka Tani No. 12"
+        placeholder="Jl. Raya Ahmad Yani No. 12"
       ></ion-textarea>
     </ion-item>
 

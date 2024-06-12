@@ -107,7 +107,15 @@ ion-footer {
   }
 
   ion-button {
-    font-size: 1.2rem;
+    --background: #2596be; /* Warna latar belakang tombol */
+    --background-hover: #e64917; /* Warna latar belakang tombol saat hover */
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+    font-size: 1rem; /* Ukuran font tombol */
     font-weight: bold;
+    margin-top: 16px;
+    margin-bottom: 18px;
+    --padding-start: 20px;
+    --padding-end: 20px;
   }
 }
