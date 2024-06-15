@@ -5,6 +5,7 @@ import { Shoes } from 'src/app/models/shoe.model';
 import { ShoeService } from 'src/app/services/shoe.service';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-listing',
@@ -15,8 +16,13 @@ export class ListingPage implements OnInit {
   categories: Category[] = [];
   shoes: Shoes[] = [];
   filteredShoes$: Observable<Shoes[]> = of([]);
+  userName: string = '';
 
-  constructor(private shoeService: ShoeService, private router: Router) {}
+  constructor(
+    private shoeService: ShoeService,
+    private router: Router,
+    private userService: UserService
+  ) {}
 
   ngOnInit() {
     this.getCategories();
@@ -70,6 +76,11 @@ export class ListingPage implements OnInit {
   }
   goToProfile() {
     this.router.navigate(['/user-profile']);
+  }
+
+  ionViewWillEnter() {
+    // Ambil nama pengguna dari UserService saat halaman dimuat
+    this.userName = this.userService.getUserName();
   }
 
   goToCategoryPage(item: Category) {

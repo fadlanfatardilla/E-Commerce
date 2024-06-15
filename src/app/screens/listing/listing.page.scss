@@ -18,8 +18,8 @@ ion-content {
     margin-bottom: 1rem;
     margin-top: 3rem;
 
-    h2 {
-      font-size: 2rem; /* Mengubah h1 menjadi h2 untuk konsistensi */
+    h3 {
+      font-size: 1.8rem; /* Mengubah h1 menjadi h2 untuk konsistensi */
       font-weight: 600;
       color: #515151;
       margin: 0;
@@ -31,16 +31,16 @@ ion-content {
       background-color: black;
       border-radius: 50%;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
-      overflow: hidden;
+      overflow: hidden; /* Mengatur overflow agar gambar tidak keluar dari lingkaran */
+    }
 
-      ion-img {
-        width: 90%;
-        height: 90%;
-        background: none !important;
-        background-color: transparent;
-      }
+    .avatar ion-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
     }
   }
 

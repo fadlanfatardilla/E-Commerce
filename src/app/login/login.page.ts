@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AuthService } from '../services/api.service';
 import { AlertController } from '@ionic/angular';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginPage {
   constructor(
     private authService: AuthService,
     private navCtrl: NavController,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private userService: UserService
   ) {}
 
   togglePassword() {
@@ -46,6 +48,7 @@ export class LoginPage {
       (response: any) => {
         console.log('Login successful', response);
         const userRole = response.user.role; // Pastikan role user diambil dari respons
+        this.userService.setUserName(response.user.name); // Simpan nama user
         if (userRole === 'admin') {
           this.presentAlert(
             'Login Successful',

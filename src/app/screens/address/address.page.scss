@@ -31,3 +31,30 @@
     border-radius: 4px;
   }
 }
+
+ion-content {
+  --ion-padding-start: 10px;
+  --ion-padding-end: 10px;
+  --ion-padding-top: 10px;
+  --ion-padding-bottom: 10px;
+}
+
+ion-label {
+  h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+ion-icon {
+  color: #2596be; /* Customize icon color */
+}
+
+ion-button {
+  --background: transparent;
+  --color: #2596be; /* Customize button color */
+}

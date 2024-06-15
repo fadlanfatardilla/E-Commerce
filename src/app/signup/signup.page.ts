@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AuthService } from '../services/api.service';
 import { ToastController } from '@ionic/angular';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -19,7 +20,8 @@ export class SignupPage {
   constructor(
     private navCtrl: NavController,
     private authService: AuthService,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private userService: UserService
   ) {}
 
   togglePassword() {
@@ -47,6 +49,8 @@ export class SignupPage {
           color: 'success',
         });
         await toast.present();
+        // this.userService.setUserName(this.name); // Set user name in UserService
+        // this.userService.setJoinedDate(signupData.joinedDate); // Set joined date in UserService
         this.navCtrl.navigateForward('/login');
       },
       async (error: any) => {

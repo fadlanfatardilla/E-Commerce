@@ -5,6 +5,7 @@ import { Shoes } from 'src/app/models/shoe.model';
 import { CartService } from 'src/app/services/cart.service';
 import { Observable } from 'rxjs';
 import { CartItem } from 'src/app/models/cart-item.model';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -16,12 +17,14 @@ export class CheckoutPage implements OnInit {
   cartItems$: Observable<CartItem[]>; // Inisialisasi di constructor
   totalPrice$: Observable<number>; // Inisialisasi di constructor
   subTotalPrice: number = 0; // Menambahkan variabel subTotalPrice
+  selectedAddress: any;
 
   constructor(
     private actionSheetController: ActionSheetController,
     private shoeService: ShoeService,
     private cartService: CartService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private router: Router
   ) {
     // Inisialisasi di constructor
     this.cartItems$ = this.cartService.getCart();
@@ -31,6 +34,12 @@ export class CheckoutPage implements OnInit {
     this.totalPrice$.subscribe((total) => {
       this.subTotalPrice = total;
     });
+
+    // Cek apakah ada alamat yang diteruskan dari halaman address
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation?.extras.state) {
+      this.selectedAddress = navigation.extras.state['selectedAddress'];
+    }
   }
 
   ngOnInit() {

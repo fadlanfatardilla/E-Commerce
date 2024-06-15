@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActionSheetController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
+import { AddressService, Address } from 'src/app/services/address.service';
+import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-address',
   templateUrl: './add-address.page.html',
   styleUrls: ['./add-address.page.scss'],
 })
-export class AddAddressPage {
+export class AddAddressPage implements OnInit {
   addressForm: FormGroup;
   provinces: string[] = [];
   cities: any = {};
@@ -17,7 +20,10 @@ export class AddAddressPage {
   constructor(
     private fb: FormBuilder,
     private actionSheetController: ActionSheetController,
-    private http: HttpClient
+    private http: HttpClient,
+    private addressService: AddressService,
+    private router: Router,
+    private toastController: ToastController
   ) {
     this.addressForm = this.fb.group({
       addressName: [''],
@@ -30,7 +36,9 @@ export class AddAddressPage {
       address: [''],
       addressNotes: [''],
     });
+  }
 
+  ngOnInit() {
     this.loadProvinces();
     this.loadCities();
   }
@@ -81,8 +89,31 @@ export class AddAddressPage {
     await actionSheet.present();
   }
 
+  async saveAddress() {
+    const address: Address = {
+      name: this.addressForm.value.addressName,
+      receiver: this.addressForm.value.receiverName,
+      phone: this.addressForm.value.phoneNumber,
+      fullAddress: `${this.addressForm.value.address}, ${this.addressForm.value.village}, ${this.addressForm.value.districts}, ${this.addressForm.value.city}, ${this.addressForm.value.province}`,
+    };
+
+    this.addressService.addAddress(address);
+
+    const toast = await this.toastController.create({
+      message: 'Address added successfully',
+      duration: 2000, // Durasi tampilan toast dalam milidetik
+      position: 'bottom', // Posisi toast
+    });
+    toast.present();
+
+    this.addressForm.reset(); // Reset the form after saving the address
+    this.selectedCities = []; // Reset the selected cities
+
+    this.router.navigate(['/address']);
+  }
+
   onSubmit() {
     console.log(this.addressForm.value);
-    // Here you can add the logic to submit the form data to your backend
+    this.saveAddress();
   }
 }

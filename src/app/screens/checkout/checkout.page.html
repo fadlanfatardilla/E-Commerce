@@ -18,11 +18,18 @@
       <ion-card-title>Shipping Address</ion-card-title>
       <span class="change-button" (click)="handleChangeClick()">Change</span>
     </ion-card-header>
-    <ion-card-content>
-      <p>-</p>
-      <p>Receiver: - - -</p>
-      <p>-</p>
-    </ion-card-content>
+    <ion-content>
+      <ion-card-content *ngIf="selectedAddress; else noAddress">
+        <p>{{ selectedAddress.name }}</p>
+        <p>
+          Receiver: {{ selectedAddress.receiver }} - {{ selectedAddress.phone }}
+        </p>
+        <p>{{ selectedAddress.fullAddress }}</p>
+      </ion-card-content>
+      <ng-template #noAddress>
+        <p>No address selected</p>
+      </ng-template>
+    </ion-content>
   </ion-card>
 
   <!-- Selected Item from Cart -->
