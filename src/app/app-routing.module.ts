@@ -74,6 +74,14 @@ const routes: Routes = [
     path: 'add-address',
     loadChildren: () => import('./screens/add-address/add-address.module').then( m => m.AddAddressPageModule)
   },
+  {
+    path: 'order',
+    loadChildren: () => import('./screens/order/order.module').then( m => m.OrderPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./screens/settings/settings.module').then( m => m.SettingsPageModule)
+  },
 ];
 
 @NgModule({
