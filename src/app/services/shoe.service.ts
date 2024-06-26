@@ -82,6 +82,78 @@ export class ShoeService {
         'The Nike Pegasus Running Shoes are designed for runners of all levels, offering a blend of comfort, durability, and style.',
       brand: 'Nike',
     },
+    {
+      id: 9,
+      title: 'Puma Future Rider',
+      price: 1.899,
+      image: 'assets/images/pumaFutureRider.png',
+      description:
+        'The Puma Future Rider is a modern reinterpretation of Puma iconic Fast Rider from the 1980s, offering a sleek and comfortable design suitable for everyday wear.',
+      brand: 'Puma',
+    },
+    {
+      id: 10,
+      title: 'Puma Cali Dream',
+      price: 1.659,
+      image: 'assets/images/cali-dream.png',
+      description:
+        'The Puma Cali Dream is a modern interpretation of the original Puma California from the 1980s, designed for casual and streetwear fashion.',
+      brand: 'Puma',
+    },
+    {
+      id: 11,
+      title: 'Puma RS-X Games',
+      price: 2.199,
+      image: 'assets/images/RsXGames.png',
+      description:
+        'The Puma RX-Games is a futuristic sneaker that combines retro and contemporary elements, perfect for those looking to stand out. It features a bold and chunky design with a mix of mesh, suede, and leather overlays on the upper for durability and breathability.',
+      brand: 'Puma',
+    },
+    {
+      id: 12,
+      title: 'Puma Clyde Varsity',
+      price: 2.099,
+      image: 'assets/images/clyde-varsity.png',
+      description:
+        'The Puma Clyde Varsity is a stylish and iconic sneaker inspired by the legendary basketball player Walt "Clyde" Frazier. Known for its clean and minimalist design, the shoe features a smooth suede upper with Puma Formstrip overlays on the sides.',
+      brand: 'Puma',
+    },
+    {
+      id: 13,
+      title: 'Puma Suede Classic',
+      price: 839,
+      image: 'assets/images/suede-classic.png',
+      description:
+        'The Puma Suede Classic is an iconic sneaker that has stood the test of time, originally debuting in 1968. Renowned for its simple yet stylish design, the shoe features a premium suede upper with the signature Puma Formstrip on the sides.',
+      brand: 'Puma',
+    },
+    {
+      id: 14,
+      title: 'Puma Slipstream Lo Gum',
+      price: 1.289,
+      image: 'assets/images/slipstream-logum.png',
+      description:
+        'The Puma Slipstream Lo Gum is a modern twist on the classic Slipstream basketball shoe, featuring a low-top silhouette and timeless design. This sneaker is crafted with a premium leather upper, providing a smooth and sophisticated look.',
+      brand: 'Puma',
+    },
+    {
+      id: 15,
+      title: 'Puma Slipstream Xtreme',
+      price: 1.099,
+      image: 'assets/images/slipstream-xtreme.png',
+      description:
+        'The Puma Slipstream Xtreme is a bold sneaker that stands out with its daring design and striking aesthetics. Inspired by the original 1980s Slipstream, this updated version features premium leather, suede, and mesh materials for rich texture and enhanced durability.',
+      brand: 'Puma',
+    },
+    {
+      id: 16,
+      title: 'Adidas Supernova Rise',
+      price: 2.199,
+      image: 'assets/images/supernova-rise.png',
+      description:
+        'The Adidas Supernova Rise is a high-performance running shoe with a breathable mesh upper for optimal airflow, keeping your feet cool and dry during runs.',
+      brand: 'Adidas',
+    },
   ];
 
   getShoesList(): Shoes[] {

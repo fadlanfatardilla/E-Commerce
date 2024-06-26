@@ -17,7 +17,9 @@
       <div class="profile-header">
         <img [src]="profileImage" class="profile-img" />
         <h2 class="profile-name">{{ userName }}</h2>
-        <button ion-button class="detail-button">Detail</button>
+        <button ion-button class="photo-button" (click)="changeProfileImage()">
+          Change Photo
+        </button>
       </div>
     </ion-card-content>
   </ion-card>

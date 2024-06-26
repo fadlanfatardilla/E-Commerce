@@ -17,6 +17,7 @@ export class ListingPage implements OnInit {
   shoes: Shoes[] = [];
   filteredShoes$: Observable<Shoes[]> = of([]);
   userName: string = '';
+  profileImage: string = 'assets/images/default-avatar.png'; // Default avatar
 
   constructor(
     private shoeService: ShoeService,
@@ -74,6 +75,7 @@ export class ListingPage implements OnInit {
   goToWishlist() {
     this.router.navigate(['/wishlist']);
   }
+
   goToProfile() {
     this.router.navigate(['/user-profile']);
   }

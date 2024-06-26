@@ -3,7 +3,9 @@
   <div class="header">
     <h3>Hello, {{ userName }}</h3>
     <div class="avatar">
-      <ion-img src="assets/images/avatar.jpg"></ion-img>
+      <ion-img
+        [src]="profileImage ? profileImage : 'assets/images/default-avatar.png'"
+      ></ion-img>
     </div>
   </div>
 

@@ -12,6 +12,7 @@ import { TitleCasePipe } from '@angular/common';
 import { ShoeService } from './services/shoe.service';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 @NgModule({
   declarations: [AppComponent],
